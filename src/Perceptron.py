@@ -1,4 +1,4 @@
-#转载至：Python machine learning.
+#转载至：Python Machine Learning.
 import numpy as np
 class Perceptron(object):
     """Perceptron classifier.
@@ -49,7 +49,7 @@ class Perceptron(object):
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
                 self.w_[0] += update
-                errors = int(update != 0.0)
+                errors += int(update != 0.0)
             self.errors_.append(errors)
         return self
     
@@ -57,6 +57,6 @@ class Perceptron(object):
         """calculate net input"""
         return np.dot(x, self.w_[1:]) + self.w_[0]
     
-    def predect(self, x):
-        """Return class lable after unit step"""
+    def predict(self, x):
+        """Return class label after unit step"""
         return np.where(self.net_input(x) >= 0.0, 1, -1) #analoge ? : in C++
